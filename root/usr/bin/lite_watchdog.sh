@@ -1,4 +1,4 @@
-﻿#!/bin/sh
+#!/bin/sh
 
 # $1 delay time
 # $2 ping count
