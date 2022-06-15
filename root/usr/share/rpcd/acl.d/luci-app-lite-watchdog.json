@@ -1,0 +1,21 @@
+{
+	"luci-app-lite-watchdog": {
+		"description": "Grant access to lite-watchdog executables",
+		"read": {
+   			"cgi-io": [ "exec" ],
+    			"file": {
+				"/usr/bin/lite-watchdog-data.sh": [ "exec" ],
+				"/usr/bin/lite_watchdog.sh": [ "exec" ],
+				"/sbin/watchdog2cron.sh": [ "exec" ],
+				"/etc/watchdog": [ "read" ]
+			},
+			"uci": [ "watchdog", "luci-app-lite-watchdog" ]
+		},
+		"write": {
+			"file": {
+				"/etc/watchdog": [ "write" ]
+			},
+			"uci": [ "watchdog", "luci-app-lite-watchdog" ]
+		}
+	}
+}

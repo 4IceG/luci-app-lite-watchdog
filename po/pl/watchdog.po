@@ -1,0 +1,102 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "Connection Monitor"
+msgstr "Monitor połączenia"
+
+msgid "Connection monitor settings"
+msgstr "Ustawienia monitora połączenia"
+
+msgid "Configuration luci-app-lite-watchdog"
+msgstr "Konfiguracja luci-app-lite-watchdog"
+
+msgid "Configuration panel for lite-watchdog and gui application."
+msgstr "Panel konfiguracyjny dla aplikacji lite-watchdog i gui."
+
+msgid "Interface"
+msgstr "Interfejs"
+
+msgid "Network interface for Internet access."
+msgstr "Interfejs sieciowy umożliwiający dostęp do Internetu."
+
+msgid "Port for communication with the modem"
+msgstr "Port do komunikacji z modemem"
+
+msgid "Select one of the available ttyUSBX ports."
+msgstr "Wybierz jeden z dostępnych portów ttyUSBX."
+
+msgid "Please select a port"
+msgstr "Wybierz port"
+
+msgid "Perform a modem restart before resuming the connection."
+msgstr "Wykonaj restart modemu przed wznowieniem połączenia."
+
+msgid "Restart modem with AT command"
+msgstr "Restart modemu za pomocą polecenia AT"
+
+msgid "AT command to restart the modem."
+msgstr "Polecenie AT restartujące modem."
+
+msgid "Configuration of the connection monitor, which is a conversion of the monitor known from the easyconfig package. More information on the"
+msgstr "Konfiguracja monitora połączenia, który jest konwersją monitora znanego z pakietu easyconfig. Więcej informacji na"
+
+msgid "eko.one.pl forum"
+msgstr "forum eko.one.pl"
+
+msgid "Enable a connection monitor."
+msgstr "Włącz monitor połączenia."
+
+msgid "System startup delay"
+msgstr "Opóźnienie przy starcie systemu"
+
+msgid "[1 - 59] minute(s)"
+msgstr "[1 - 59] minut(y)"
+
+msgid "Expect a decimal value between one and fifty-nine"
+msgstr "Oczekiwana jest wartość dziesiętna z zakresu od jednego do pięćdziesięciu dziewięciu"
+
+msgid "Address or name"
+msgstr "Adres lub nazwa"
+
+msgid "Verification period"
+msgstr "Okres sprawdzenia"
+
+msgid "Number of failed checks"
+msgstr "Liczba nieudanych sprawdzeń"
+
+msgid "Action"
+msgstr "Akcja"
+
+msgid "Connection restart"
+msgstr "Restart połączenia z internetem"
+
+msgid "Modem restart"
+msgstr "Restart modemu"
+
+msgid "Reboot"
+msgstr "Ponowne uruchomienie urządzenia"
+
+msgid "Changes have been saved. Connection Monitor has started."
+msgstr "Zmiany zostały zapisane. Monitor połączenia został uruchomiony."
+
+msgid "Changes have been saved. Connection Monitor is not running."
+msgstr "Zmiany zostały zapisane. Monitor połączenia nie działa."
+
+msgid "Last check:"
+msgstr "Ostatnie sprawdzenie:"
+
+msgid "minimum:"
+msgstr "minimun:"
+
+msgid "average:"
+msgstr "średnia:"
+
+msgid "maximum:"
+msgstr "maksimum:"
+
+msgid "Information"
+msgstr "Informacje"
+
+msgid "Basic settings"
+msgstr "Ustawienia podstawowe"
+
