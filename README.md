@@ -6,6 +6,7 @@
 ![GitHub All Releases](https://img.shields.io/github/downloads/4IceG/luci-app-lite-watchdog/total)
 
 Luci-app-lite-watchdog is connection tester based on the method of testing pings to a given address.
+The connection monitor is a conversion of the monitor known from the easyconfig package.
 
 ``` bash
 #Modem drivers are required for proper operation.
