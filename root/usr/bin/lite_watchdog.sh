@@ -38,11 +38,11 @@ if [ $CNT -ge $4 ]; then
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="wan" /bin/sh /etc/lite_watchdog.user
 			
 			MODRES=$(uci -q get watchdog.@watchdog[0].modemrestart)
-			if [ "$MODRES" = "1" ]; then
-			CMD=$(uci -q get watchdog.@watchdog[0].restartcmd)
-			PORT=$(uci -q get watchdog.@watchdog[0].set_port)
-			logger -t $0 "Modem Restart"
-			(sms_tool -d $PORT at "$CMD"; sleep 25) &
+			if [ "$MODRES" == "1" ]; then
+				CMD=$(uci -q get watchdog.@watchdog[0].restartcmd)
+				PORT=$(uci -q get watchdog.@watchdog[0].set_port)
+				logger -t $0 "Modem Restart"
+				(sms_tool -d $PORT at "$CMD"; sleep 25) &
 			fi
 			
 			logger -t $0 "WAN Restart"
