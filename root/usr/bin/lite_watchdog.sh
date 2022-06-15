@@ -13,8 +13,8 @@ T=$(uci -q get network.wan.proto)
 UPTIME=$(awk '{printf "%d", $1}' /proc/uptime)
 [ $UPTIME -le $1 ] && exit 0
 
-ping -q -4 -w 10 -c $2 $3 > /tmp/lite_watchdog 2>/dev/null
 date +"%Y-%m-%d %T" 2>&1 > /tmp/lite_watchdog_tt
+ping -q -4 -w 10 -c $2 $3 > /tmp/lite_watchdog 2>/dev/null
 
 PR=$(awk '/packets received/ {print $4}' /tmp/lite_watchdog)
 [ -z "$PR" ] && PR=0
