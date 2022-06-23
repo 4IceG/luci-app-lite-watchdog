@@ -25,8 +25,8 @@ opkg update
 opkg install sms-tool
 
 Install app.
-wget https://github.com/4IceG/luci-app-lite-watchdog/releases/download/1.0.1-20220615/luci-app-lite-watchdog_1.0.1-20220615_all.ipk -O /tmp/luci-app-lite-watchdog_1.0.1-20220615_all.ipk
-opkg install /tmp/luci-app-lite-watchdog_1.0.1-20220615_all.ipk
+wget https://github.com/4IceG/luci-app-lite-watchdog/releases/download/1.0.1-20220623/luci-app-lite-watchdog_1.0.1-20220623_all.ipk -O /tmp/luci-app-lite-watchdog_1.0.1-20220623_all.ipk
+opkg install /tmp/luci-app-lite-watchdog_1.0.1-20220623_all.ipk
 
 ```
 
