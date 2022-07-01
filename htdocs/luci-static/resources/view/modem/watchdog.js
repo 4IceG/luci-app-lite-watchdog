@@ -133,22 +133,22 @@ return view.extend({
 				E('h3', _('Information')),
 					E('table', { 'class': 'table' }, [
 						E('tr', { 'class': 'tr' }, [
-						E('div', { 'class': 'td left', 'width': '33%' }, [ _('Last check:')]),
-						E('div', { 'class': 'td left', 'id': 'testtime' }, [ testtime || '-' ]),
+						E('td', { 'class': 'td left', 'width': '33%' }, [ _('Last check:')]),
+						E('td', { 'class': 'td left', 'id': 'testtime' }, [ testtime || '-' ]),
 					]),
 
 						E('tr', { 'class': 'tr' }, [
-						E('div', { 'class': 'td left', 'width': '33%' }, [ _('minimum:')]),
-						E('div', { 'class': 'td left', 'id': 'min' }, [ min || '-' ]),
+						E('td', { 'class': 'td left', 'width': '33%' }, [ _('minimum:')]),
+						E('td', { 'class': 'td left', 'id': 'min' }, [ min || '-' ]),
 					]),
 
 						E('tr', { 'class': 'tr' }, [
-						E('div', { 'class': 'td left', 'width': '33%' }, [ _('average:')]),
-						E('div', { 'class': 'td left', 'id': 'avg' }, [ avg || '-' ]),
+						E('td', { 'class': 'td left', 'width': '33%' }, [ _('average:')]),
+						E('td', { 'class': 'td left', 'id': 'avg' }, [ avg || '-' ]),
 					]),
 						E('tr', { 'class': 'tr' }, [
-						E('div', { 'class': 'td left', 'width': '33%' }, [ _('maximum:')]),
-						E('div', { 'class': 'td left', 'id': 'max' }, [ max || '-' ]),
+						E('td', { 'class': 'td left', 'width': '33%' }, [ _('maximum:')]),
+						E('td', { 'class': 'td left', 'id': 'max' }, [ max || '-' ]),
 					]),
 				])
 			]);
