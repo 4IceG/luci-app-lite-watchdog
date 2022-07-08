@@ -7,7 +7,7 @@ PKG_NAME:=luci-app-lite-watchdog
 LUCI_TITLE:=LuCI panel for lite-watchdog
 LUCI_PKGARCH:=all
 LUCI_DEPENDS:=+sms-tool
-PKG_VERSION:=1.0.2-20220701
+PKG_VERSION:=1.0.2-20220708
 PKG_RELEASE:=1
 
 define Package/$(PKG_NAME)

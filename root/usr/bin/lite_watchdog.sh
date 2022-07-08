@@ -31,7 +31,7 @@ if [ $CNT -ge $4 ]; then
 	case "$5" in
 		"reboot")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="reboot" /bin/sh /etc/lite_watchdog.user
-			logger -t $0 "Reboot"
+			logger -t LITE-WATCHDOG "Reboot"
 			reboot
 			;;
 		"wan")
@@ -41,12 +41,12 @@ if [ $CNT -ge $4 ]; then
 			if [ "$MODRES" == "1" ]; then
 				CMD=$(uci -q get watchdog.@watchdog[0].restartcmd)
 				PORT=$(uci -q get watchdog.@watchdog[0].set_port)
-				logger -t $0 "Modem Restart"
+				logger -t LITE-WATCHDOG "Restart modem on port: \"$PORT\"."
 				(sms_tool -d $PORT at "$CMD"; sleep 25) &
 			fi
-			
-			logger -t $0 "WAN Restart"
+
 			WAN=$(uci -q get watchdog.@watchdog[0].iface)
+			logger -t LITE-WATCHDOG "Restarting network interface: \"$WAN\"."
 			(ifdown $WAN; sleep 5; ifup $WAN) &
 			;;
 	esac
