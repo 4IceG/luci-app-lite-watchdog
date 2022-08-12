@@ -39,9 +39,8 @@ return view.extend({
 
 		o = s.option(form.Value, 'set_port', _('Port for communication with the modem'), 
 			_("Select one of the available ttyUSBX ports."));
-		devs.forEach(function(dev) {
-			o.value('/dev/' + dev.name);
-		});
+		devs.sort((a, b) => a.name > b.name);
+		devs.forEach(dev => o.value('/dev/' + dev.name));
 		o.placeholder = _('Please select a port');
 		o.rmempty = false;
 		o.depends("modemrestart", "1");

@@ -50,7 +50,7 @@ msgid "System startup delay"
 msgstr "Opóźnienie przy starcie systemu"
 
 msgid "[1 - 59] minute(s)"
-msgstr "[1 - 59] minut(y)"
+msgstr "[1 - 59] minut(-y)"
 
 msgid "Expect a decimal value between one and fifty-nine"
 msgstr "Oczekiwana jest wartość dziesiętna z zakresu od jednego do pięćdziesięciu dziewięciu"
