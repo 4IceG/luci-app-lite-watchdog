@@ -45,7 +45,14 @@ if [ $CNT -ge $4 ]; then
 				(sms_tool -d $PORT at "$CMD"; sleep 25) &
 			fi
 
-			WAN=$(uci -q get watchdog.@watchdog[0].iface)
+			WANT=$(uci -q get watchdog.@watchdog[0].iface)
+			SUB='@'
+			if [[ "$WANT" == *"$SUB"* ]]; then
+				WAN=$(echo $WANT | sed 's/@//')
+			else
+				WAN=$(uci -q get watchdog.@watchdog[0].iface)
+			fi
+			
 			logger -t LITE-WATCHDOG "Restarting network interface: \"$WAN\"."
 			(ifdown $WAN; sleep 5; ifup $WAN) &
 			;;

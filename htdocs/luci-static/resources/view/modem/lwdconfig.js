@@ -29,7 +29,7 @@ return view.extend({
 		o = s.option(widgets.DeviceSelect, 'iface', _('Interface'),
 		_('Network interface for Internet access.')
 		);
-		o.noaliases  = true;
+		o.noaliases  = false;
 		o.default = 'wan';
 
 		o = s.option(form.Flag, 'modemrestart', _('Modem restart'),
