@@ -37,8 +37,8 @@ msgstr "Restart modemu za pomocą polecenia AT"
 msgid "AT command to restart the modem."
 msgstr "Polecenie AT restartujące modem."
 
-msgid "Configuration of the connection monitor, which is a conversion of the monitor known from the easyconfig package. More information on the"
-msgstr "Konfiguracja monitora połączenia, który jest konwersją monitora znanego z pakietu easyconfig. Więcej informacji na"
+msgid "Configuration of the connection monitor, which is a conversion of the monitor known from the easyconfig package. More information on the %seko.one.pl forum%s."
+msgstr "Konfiguracja monitora połączenia, który jest konwersją monitora znanego z pakietu easyconfig. Więcej informacji na %sforum eko.one.pl%s."
 
 msgid "eko.one.pl forum"
 msgstr "forum eko.one.pl"

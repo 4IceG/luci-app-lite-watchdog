@@ -46,8 +46,8 @@ if [ $CNT -ge $4 ]; then
 			fi
 
 			WANT=$(uci -q get watchdog.@watchdog[0].iface)
-			SUB='@'
-			if [[ "$WANT" == *"$SUB"* ]]; then
+
+			if [[ "$WANT" == *"@"* ]]; then
 				WAN=$(echo $WANT | sed 's/@//')
 			else
 				WAN=$(uci -q get watchdog.@watchdog[0].iface)

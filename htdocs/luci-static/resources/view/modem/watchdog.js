@@ -119,9 +119,9 @@ return view.extend({
   				console.log('Error: ', err.message);
 			}
 
-		}		
-
-		var info = _('Configuration of the connection monitor, which is a conversion of the monitor known from the easyconfig package. More information on the') + ' <a href="https://eko.one.pl/?p=easyconfig" target="_blank">' + _('eko.one.pl forum') + '</a>.';
+		}
+		
+		var info = _('Configuration of the connection monitor, which is a conversion of the monitor known from the easyconfig package. More information on the %seko.one.pl forum%s.').format('<a href="https://eko.one.pl/?p=easyconfig" target="_blank">', '</a>');
 
 		m = new form.JSONMap(this.formdata, _('Connection monitor settings'), info);
 
