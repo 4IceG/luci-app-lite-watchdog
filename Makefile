@@ -7,7 +7,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-lite-watchdog
 LUCI_TITLE:=LuCI Support for lite-watchdog scripts
-LUCI_DESCRIPTION:=Luci interface for the lite-watchdog scripts.
+LUCI_DESCRIPTION:=LuCI interface for the lite-watchdog scripts.
 LUCI_DEPENDS:=+sms-tool
 LUCI_PKGARCH:=all
 PKG_VERSION:=1.0.4-20221121
