@@ -3,8 +3,8 @@
 		"title": "Connection Monitor",
 		"order": 70,
 		"action": {
-			"type": "view",
-			"path": "modem/watchdog"
+			"type": "alias",
+			"path": "admin/services/watchdog/watchdog"
 		},
 		"depends": {
 			"acl": [ "luci-app-lite-watchdog" ],
@@ -30,3 +30,4 @@
 		}
 	}
 }
+
