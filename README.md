@@ -73,7 +73,18 @@ make V=s -j1 feeds/luci/applications/luci-app-lite-watchdog/compile
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Preview / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podgląd
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/Lite-watchdog.png?raw=true)
+
+> "Monitor" window / Okno "Monitora połączenia":
+
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/cm1.PNG?raw=true)
+
+> "Activity log" window / Okno "Dziennika aktywności":
+
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/cm2.PNG?raw=true)
+
+> "Configuration" window / Okno "Konfiguracji":
+
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/cm3.PNG?raw=true)
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podziękowania dla
 - [obsy (Cezary Jackiewicz)](https://github.com/obsy)
