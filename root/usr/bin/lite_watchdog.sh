@@ -13,6 +13,17 @@ T=$(uci -q get network.wan.proto)
 UPTIME=$(awk '{printf "%d", $1}' /proc/uptime)
 [ $UPTIME -le $1 ] && exit 0
 
+DIR="/etc/modem"
+LOG_FILE="$DIR/log.txt"
+
+LINES_MAX=11000
+LINES_MIN=6000
+LINES_COUNT=$(wc -l $LOG_FILE | awk '{print $1}')
+
+if [[ "$LINES_COUNT" -ge "$LINES_MAX" ]]; then
+   echo "$(tail -$LINES_MIN $LOG_FILE)" > $LOG_FILE
+fi
+
 date +"%Y-%m-%d %T" 2>&1 > /tmp/lite_watchdog_tt
 ping -q -4 -w 10 -c $2 $3 > /tmp/lite_watchdog 2>/dev/null
 
@@ -20,7 +31,13 @@ PR=$(awk '/packets received/ {print $4}' /tmp/lite_watchdog)
 [ -z "$PR" ] && PR=0
 if [ "$PR" = "0" ]; then
 	echo 0 >> /tmp/lite_watchdog_cnt
+
+	TSTC=$(wc -l < /tmp/lite_watchdog_cnt)
+	TST=$((TSTC-1))
+
+	date +"%A %T %d-%m-%Y Status: OFFLINE > (FAILED $TST OUT OF $4)" >> $LOG_FILE
 else
+	date +"%A %T %d-%m-%Y Status: ONLINE" >> $LOG_FILE
 	echo 1 > /tmp/lite_watchdog_cnt
 	exit 0
 fi
@@ -31,12 +48,17 @@ if [ $CNT -ge $4 ]; then
 	case "$5" in
 		"reboot")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="reboot" /bin/sh /etc/lite_watchdog.user
+
+			date +"%A %T %d-%m-%Y Status: OFFLINE > REBOOT" >> $LOG_FILE && sleep 5
+
 			logger -t LITE-WATCHDOG "Reboot"
 			reboot
 			;;
 		"wan")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="wan" /bin/sh /etc/lite_watchdog.user
 			
+			date +"%A %T %d-%m-%Y Status: OFFLINE > RESTARTING INTERFACE" >> $LOG_FILE && sleep 5
+
 			MODRES=$(uci -q get watchdog.@watchdog[0].modemrestart)
 			if [ "$MODRES" == "1" ]; then
 				CMD=$(uci -q get watchdog.@watchdog[0].restartcmd)

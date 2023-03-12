@@ -8,6 +8,9 @@ MAX=$(echo $VMIN | awk -F[=/] '{print $6}' | xargs)
 
 TEST_TIME="$(cat /tmp/lite_watchdog_tt)"
 
+CNT=$(wc -l < /tmp/lite_watchdog_cnt)
+CNT=$((CNT-1))
+
 ONV=$(uci -q get watchdog.@watchdog[0].enabled)
 if [ $ONV == "0" ]; then
 
@@ -29,6 +32,7 @@ cat <<EOF
 "delay":"$DY",
 "period":"$PD",
 "count":"$CT",
+"now_count":"$CNT",
 "action":"$AN",
 "testtime":"$TEST_TIME",
 "min":"$MIN",
@@ -37,4 +41,3 @@ cat <<EOF
 }
 EOF
 exit 0
-

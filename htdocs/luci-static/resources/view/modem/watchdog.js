@@ -9,7 +9,9 @@
 'require tools.widgets as widgets';
 
 /*
-	Copyright 2022 Rafał Wabik - IceG - From eko.one.pl forum
+	Copyright 2022-2023 Rafał Wabik - IceG - From eko.one.pl forum
+
+ 	MIT License
 */
 
 return view.extend({
@@ -67,17 +69,27 @@ return view.extend({
 				var view4 = document.getElementById("max");
 
 				var min = json.min.toString();
-				if (min == '') {
 
-				view.textContent = '-'; 
+				var ttime = json.testtime.toString();
+				var countz = json.now_count.toString();
+				if (countz != '-1') {
+				var renderHTML = "";
+				renderHTML = ttime + ' (' + _('failed') + ' ' + countz + ' ' + _('out of') + ' ' + count + ')';
+				view.innerHTML  = '';
+  				view.innerHTML  = renderHTML.trim();
+				}
+
+				if (min == '') {
 				view2.textContent = '-';
 				view3.textContent = '-';
 				view4.textContent = '-';
 				}
 				else {
 				var ttime = json.testtime.toString();
+				var countz = json.now_count.toString();
+				var testz = json.now_count.toString();
 				var renderHTML = "";
-				renderHTML = ttime;
+				renderHTML = ttime + ' (' + _('failed') + ' ' + countz + ' ' + _('out of') + ' ' + count + ')';
 				view.innerHTML  = '';
   				view.innerHTML  = renderHTML.trim();
 
@@ -110,15 +122,12 @@ return view.extend({
 				}
 
 				}
-
 			});
 		});
 		}		
-
 			} catch (err) {
   				console.log('Error: ', err.message);
 			}
-
 		}
 		
 		var info = _('Configuration of the connection monitor, which is a conversion of the monitor known from the easyconfig package. More information on the %seko.one.pl forum%s.').format('<a href="https://eko.one.pl/?p=easyconfig" target="_blank">', '</a>');
@@ -179,6 +188,7 @@ return view.extend({
 
 			return _('Expect a decimal value between one and fifty-nine');
 		};
+		o.datatype = 'range(1, 59)';
 
 		o = s.taboption('basic', form.Value, 'dest', _('Address or name'),
 		_('')
@@ -198,6 +208,7 @@ return view.extend({
 
 			return _('Expect a decimal value between one and fifty-nine');
 		};
+		o.datatype = 'range(1, 59)';
 
 		o = s.taboption('basic', form.Value, 'period_count', _('Number of failed checks'),
 		_('[1 - 59]')
@@ -211,6 +222,7 @@ return view.extend({
 
 			return _('Expect a decimal value between one and fifty-nine');
 		};
+		o.datatype = 'range(1, 59)';
 
 		o = s.taboption('basic', form.ListValue, 'action', _('Action'));
 		o.value('wan', _('Connection restart'));

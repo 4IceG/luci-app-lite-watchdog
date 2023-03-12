@@ -100,3 +100,56 @@ msgstr "Informacje"
 msgid "Basic settings"
 msgstr "Ustawienia podstawowe"
 
+msgid "failed"
+msgstr "nieudanych"
+
+msgid "out of"
+msgstr "z"
+
+msgid "Activity log"
+msgstr "Dziennik aktywności"
+
+msgid "Wrong regular expression"
+msgstr "Nieprawidłowe wyrażenie regularne"
+
+msgid "No matches..."
+msgstr "Brak wyników..."
+
+msgid "Clear connection monitor log?"
+msgstr "Wyczyścić dziennik monitora połączenia?"
+
+msgid "Download error"
+msgstr "Błąd pobierania"
+
+msgid "Unable to load log data:"
+msgstr "Nie można wczytać danych dziennika:"
+
+msgid "Entries filter"
+msgstr "Filtr wpisów"
+
+msgid "Filter entries using regexp"
+msgstr "Filtruj wpisy za pomocą wyrażenia regularnego"
+
+msgid "Refresh"
+msgstr "Odśwież"
+
+msgid "Connection monitor activity log"
+msgstr "Dziennik aktywności monitora połączenia"
+
+msgid "Connection monitor activity log, which is a conversion of the monitor known from the easyconfig package. More information on the %seko.one.pl forum%s."
+msgstr "Dziennik aktywności monitora połączenia, który jest konwersją monitora znanego z pakietu easyconfig. Więcej informacji na %sforum eko.one.pl%s."
+
+msgid "Show only the last entries"
+msgstr "Pokaż tylko ostatnie wpisy"
+
+msgid "Message filter"
+msgstr "Filtr komunikatów"
+
+msgid "Refresh log"
+msgstr "Odśwież dziennik"
+
+msgid "Clear log"
+msgstr "Wyczyść dziennik"
+
+msgid "Download log"
+msgstr "Pobierz dziennik"

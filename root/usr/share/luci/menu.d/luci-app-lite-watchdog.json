@@ -21,13 +21,21 @@
 		}
 	},
 
+	"/admin/services/watchdog/lwdlog": {
+		"title": "Activity log",
+		"order": 20,
+		"action": {
+			"type": "view",
+			"path": "modem/lwdlog"
+		}
+	},
+
 	"/admin/services/watchdog/lwdconfig": {
 		"title": "Configuration",
-		"order": 20,
+		"order": 30,
 		"action": {
 			"type": "view",
 			"path": "modem/lwdconfig"
 		}
 	}
 }
-
