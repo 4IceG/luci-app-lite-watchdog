@@ -153,3 +153,21 @@ msgstr "Wyczyść dziennik"
 
 msgid "Download log"
 msgstr "Pobierz dziennik"
+
+msgid "Type of messages"
+msgstr "Rodzaj komunikatów"
+
+msgid "All actions"
+msgstr "Wszystkie działania"
+
+msgid "Only connection problems"
+msgstr "Tylko problemy z połączeniem"
+
+msgid "LED settings"
+msgstr "Ustawienia diody LED"
+
+msgid "The LED shows the internet connection status."
+msgstr "Dioda LED pokazuje stan połączenia z internetem."
+
+msgid "Select the status LED."
+msgstr "Wybierz diodę statusu."

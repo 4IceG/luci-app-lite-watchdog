@@ -14,6 +14,7 @@
 		"write": {
 			"file": {
 				"/etc/watchdog": [ "write" ],
+				"/sys/class/leds/*/brightness": [ "write" ],
 				"/etc/modem/log.txt": [ "write" ]
 			},
 			"uci": [ "watchdog", "luci-app-lite-watchdog" ]

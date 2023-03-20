@@ -8,5 +8,6 @@ config watchdog
 	option period_count '5'
 	option enabled '0'
 	option action 'wan'
+	option log 'all'
 
 

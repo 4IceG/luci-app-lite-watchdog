@@ -20,6 +20,12 @@ LINES_MAX=11000
 LINES_MIN=6000
 LINES_COUNT=$(wc -l $LOG_FILE | awk '{print $1}')
 
+LOG_D=$(uci -q get watchdog.@watchdog[0].log)
+
+LEDST=$(uci -q get watchdog.@watchdog[0].ledstatus)
+LEDX=$(uci -q get watchdog.@watchdog[0].led)
+LEDON="/sys/class/leds/$LEDX/brightness"
+
 if [[ "$LINES_COUNT" -ge "$LINES_MAX" ]]; then
    echo "$(tail -$LINES_MIN $LOG_FILE)" > $LOG_FILE
 fi
@@ -35,9 +41,20 @@ if [ "$PR" = "0" ]; then
 	TSTC=$(wc -l < /tmp/lite_watchdog_cnt)
 	TST=$((TSTC-1))
 
-	date +"%A %T %d-%m-%Y Status: OFFLINE > (FAILED $TST OUT OF $4)" >> $LOG_FILE
+	date +"%A %T %d-%m-%Y Status: OFFLINE > Failed $TST out of $4" >> $LOG_FILE
+
+	if [ "x$LEDST" = "x1" ]; then
+		echo "0" > $LEDON
+	fi
 else
+	if [ "$LOG_D" != "offline" ]; then
 	date +"%A %T %d-%m-%Y Status: ONLINE" >> $LOG_FILE
+	fi
+	
+	if [ "x$LEDST" = "x1" ]; then
+		echo "255" > $LEDON
+	fi
+
 	echo 1 > /tmp/lite_watchdog_cnt
 	exit 0
 fi
@@ -49,22 +66,23 @@ if [ $CNT -ge $4 ]; then
 		"reboot")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="reboot" /bin/sh /etc/lite_watchdog.user
 
-			date +"%A %T %d-%m-%Y Status: OFFLINE > REBOOT" >> $LOG_FILE && sleep 5
+			date +"%A %T %d-%m-%Y Status: OFFLINE > Action: Reboot" >> $LOG_FILE && sleep 5
 
 			logger -t LITE-WATCHDOG "Reboot"
 			reboot
 			;;
 		"wan")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="wan" /bin/sh /etc/lite_watchdog.user
-			
-			date +"%A %T %d-%m-%Y Status: OFFLINE > RESTARTING INTERFACE" >> $LOG_FILE && sleep 5
 
 			MODRES=$(uci -q get watchdog.@watchdog[0].modemrestart)
 			if [ "$MODRES" == "1" ]; then
 				CMD=$(uci -q get watchdog.@watchdog[0].restartcmd)
 				PORT=$(uci -q get watchdog.@watchdog[0].set_port)
+
 				logger -t LITE-WATCHDOG "Restart modem on port: \"$PORT\"."
-				(sms_tool -d $PORT at "$CMD"; sleep 25) &
+				(sms_tool -d $PORT at "$CMD") &
+
+				date +"%A %T %d-%m-%Y Status: OFFLINE > Action: Sent at command to modem" >> $LOG_FILE && sleep 30
 			fi
 
 			WANT=$(uci -q get watchdog.@watchdog[0].iface)
@@ -74,6 +92,8 @@ if [ $CNT -ge $4 ]; then
 			else
 				WAN=$(uci -q get watchdog.@watchdog[0].iface)
 			fi
+
+			date +"%A %T %d-%m-%Y Status: OFFLINE > Action: Restarting interface" >> $LOG_FILE && sleep 5
 			
 			logger -t LITE-WATCHDOG "Restarting network interface: \"$WAN\"."
 			(ifdown $WAN; sleep 5; ifup $WAN) &

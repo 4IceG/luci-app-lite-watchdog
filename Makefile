@@ -11,7 +11,7 @@ LUCI_TITLE:=LuCI JS Support for lite-watchdog scripts
 LUCI_DESCRIPTION:=LuCI JS interface for the lite-watchdog scripts.
 LUCI_DEPENDS:=+sms-tool
 LUCI_PKGARCH:=all
-PKG_VERSION:=1.0.6-20230312
+PKG_VERSION:=1.0.7-20230320
 
 include $(TOPDIR)/feeds/luci/luci.mk
 

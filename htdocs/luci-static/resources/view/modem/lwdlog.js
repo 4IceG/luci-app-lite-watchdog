@@ -1,19 +1,21 @@
 'use strict';
+'require view';
 'require fs';
 'require ui';
+'require uci';
 
 
 /*
 	Copyright 2023 Rafał Wabik - IceG - From eko.one.pl forum
 	
-	Licensed to the GNU General Public License v3.0.
+	MIT License
 
 	Tab is a modification of the package https://github.com/gSpotx2f/luci-app-syslog 
 */
 
 
 return L.view.extend({
-	tailDefault: 25,
+	tailDefault: 20,
 
 	parseLogData: function(logdata) {
 		return logdata.trim().split(/\n/).map(line => line.replace(/^<\d+>/, ''));
@@ -59,6 +61,17 @@ return L.view.extend({
 			}
 	},
 
+	handleChangeDetail: function(ev) {
+		var x = document.getElementById('log_detail').value;
+
+			return uci.load('watchdog').then(function() {
+				uci.set('watchdog', '@watchdog[0]', 'log', x.toString());
+				uci.save();
+				uci.apply();
+			});
+
+	},
+
 	handleDownload: function(ev) {
 		return L.resolveDefault(fs.read_direct('/etc/modem/log.txt'), null).then(function (res) {
 				if (res) {
@@ -86,6 +99,21 @@ return L.view.extend({
 	render: function(logdata) {
 		let navBtnsTop = '1px';
 		let loglines = this.parseLogData(logdata);
+
+		uci.load('watchdog').then(function() {
+		var logsettings = (uci.get('watchdog', '@watchdog[0]', 'log'));
+
+			switch (logsettings) {
+  				case 'all':
+    						document.getElementById('log_detail').value = 'all';
+    						break;
+  				case 'offline':
+    						document.getElementById('log_detail').value = 'offline';
+    						break;
+  				default:
+				}
+
+		});
 
 		 let logTextarea = E('textarea', {
 			'id': 'syslog',
@@ -181,6 +209,20 @@ return L.view.extend({
 					])
 				)
 			),
+
+						E('div', { 'class': 'cbi-value' }, [
+							E('label', {
+								'class': 'cbi-value-title',
+								'for'  : 'logFilter',
+							}, _('Type of messages')),
+							E('div', { 'class': 'cbi-value-field' }, [
+								E('select', { 'class': 'cbi-input-select', 'id': 'log_detail', 'change': ui.createHandlerFn(this, 'handleChangeDetail') }, [
+								E('option', { 'value': 'all' }, _('All actions')),
+								E('option', { 'value': 'offline' }, _('Only connection problems'))
+								]),
+							])
+						]),
+
 						E('div', { 'class': 'cbi-value' }, [
 							E('label', {
 								'class': 'cbi-value-title',
@@ -227,13 +269,13 @@ return L.view.extend({
 				E('div', { 'class': 'right' }, [
 					E('button', {
 						'class': 'cbi-button cbi-button-remove',
-						'id': 'clr',
+						'id': 'clear',
 						'click': ui.createHandlerFn(this, 'handleClear')
 					}, [ _('Clear log') ]),
 					'\xa0\xa0\xa0',
 					E('button', {
 						'class': 'cbi-button cbi-button-apply important',
-						'id': 'execute',
+						'id': 'download',
 						'click': ui.createHandlerFn(this, 'handleDownload')
 					}, [ _('Download log') ]),
 				]),

@@ -54,6 +54,25 @@ return view.extend({
 		o.rmempty = false;
 		o.depends("modemrestart", "1");
 
+		o = s.option(form.Flag, 'ledstatus', _('LED settings'),
+		_('The LED shows the internet connection status.')
+		);
+		o.rmempty = false;
+
+		o = s.option(form.ListValue, 'led',_('<abbr title="Light Emitting Diode">LED</abbr> Name'),
+			_("Select the status LED."));
+		o.load = function(section_id) {
+			return L.resolveDefault(fs.list('/sys/class/leds'), []).then(L.bind(function(leds) {
+				if(leds.length > 0) {
+				leds.sort((a, b) => a.name > b.name);
+				leds.forEach(e => o.value(e.name));
+				}
+				return this.super('load', [section_id]);
+			}, this));
+		};
+		o.rmempty = false;
+		o.depends("ledstatus", "1");
+
 		return m.render();
 	}
 });
