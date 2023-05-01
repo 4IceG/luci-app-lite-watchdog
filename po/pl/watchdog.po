@@ -82,17 +82,17 @@ msgstr "Zmiany zostały zapisane. Monitor połączenia został uruchomiony."
 msgid "Changes have been saved. Connection Monitor is not running."
 msgstr "Zmiany zostały zapisane. Monitor połączenia nie działa."
 
-msgid "Last check:"
-msgstr "Ostatnie sprawdzenie:"
+msgid "Last check"
+msgstr "Ostatnie sprawdzenie"
 
-msgid "minimum:"
-msgstr "minimun:"
+msgid "minimum"
+msgstr "minimun"
 
-msgid "average:"
-msgstr "średnia:"
+msgid "average"
+msgstr "średnia"
 
-msgid "maximum:"
-msgstr "maksimum:"
+msgid "maximum"
+msgstr "maksimum"
 
 msgid "Information"
 msgstr "Informacje"

@@ -118,7 +118,7 @@ return L.view.extend({
 		 let logTextarea = E('textarea', {
 			'id': 'syslog',
 			'class': 'cbi-input-textarea',
-			'style': 'width:100% !important; resize:horizontal; padding: 0 0 0 45px; font-size:12px',
+			'style': 'width:100% !important; resize:horizontal; padding: 0 0 0 45px; font-size:12px; font-family: monospace',
 			'readonly': 'readonly',
 			'wrap': 'off',
 			'rows': this.tailDefault,
