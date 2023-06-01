@@ -8,7 +8,17 @@
 Luci-app-lite-watchdog is connection tester based on the method of testing pings to a given address.   
 The connection monitor is a conversion of the monitor known from the easyconfig package.
 
+### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> What You Should Know / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Co powinieneś wiedzieć
+> My package will not work if you are using ModemManager.   
+> Preferred version OpenWrt >= 21.02.
+
+> Mój pakiet nie będzie działać jeżeli uzywasz ModemManager-a.   
+> Preferowana wersja OpenWrt >= 21.02.
+
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Installation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Instalacja
+
+<details>
+   <summary>Pokaż | Show me</summary>
 
 #### Package dependencies for conventional modems.
 Modem drivers are required for proper operation.
@@ -85,8 +95,14 @@ opkg install luci-app-lite-watchdog
 ```
 For images downloaded from eko.one.pl.
 Installation procedure is similar, only there is no need to manually download the sms-tool package.
+   
+</details>
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> User compilation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Kompilacja przez użytkownika
+
+<details>
+   <summary>Pokaż | Show me</summary>
+
 ``` bash
 #The package can be added to Openwrt sources in two ways:
 
@@ -112,6 +128,8 @@ packages/luci-app-lite-watchdog/Makefile
 Then you can compile the packages one by one, an example command:
 make V=s -j1 feeds/luci/applications/luci-app-lite-watchdog/compile
 ```
+
+</details>
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Preview / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podgląd
 
