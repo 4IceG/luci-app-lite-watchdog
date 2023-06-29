@@ -8,6 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-lite-watchdog
 LUCI_TITLE:=LuCI JS Support for lite-watchdog scripts
+MAINTAINER:=Rafał Wabik <4Rafal@gmail.com>
 LUCI_DESCRIPTION:=LuCI JS interface for the lite-watchdog scripts.
 LUCI_DEPENDS:=+sms-tool
 LUCI_PKGARCH:=all
