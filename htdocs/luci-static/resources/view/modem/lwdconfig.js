@@ -23,7 +23,7 @@ return view.extend({
 
 	render: function(devs) {
 		var m, s, o;
-		m = new form.Map('watchdog', _('Configuration luci-app-lite-watchdog'), _('Configuration panel for lite-watchdog and gui application.'));
+		m = new form.Map('watchdog', _('Configuration lite-watchdog'), _('Configuration panel for lite-watchdog and gui application.'));
 
 		s = m.section(form.TypedSection, 'watchdog', '', _(''));
 		s.anonymous = true;

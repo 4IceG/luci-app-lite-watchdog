@@ -7,8 +7,8 @@ msgstr "Monitor połączenia"
 msgid "Connection monitor settings"
 msgstr "Ustawienia monitora połączenia"
 
-msgid "Configuration luci-app-lite-watchdog"
-msgstr "Konfiguracja luci-app-lite-watchdog"
+msgid "Configuration lite-watchdog"
+msgstr "Konfiguracja lite-watchdog"
 
 msgid "Configuration panel for lite-watchdog and gui application."
 msgstr "Panel ustawień dla aplikacji lite-watchdog oraz dla interfejsu użytkownika."
