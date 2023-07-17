@@ -12,7 +12,7 @@ MAINTAINER:=Rafał Wabik <4Rafal@gmail.com>
 LUCI_DESCRIPTION:=LuCI JS interface for the lite-watchdog scripts.
 LUCI_DEPENDS:=+sms-tool
 LUCI_PKGARCH:=all
-PKG_VERSION:=1.0.9-20230701
+PKG_VERSION:=1.0.10-20230717
 
 define Package/luci-app-lite-watchdog/conffiles
 /etc/modem/log.txt
