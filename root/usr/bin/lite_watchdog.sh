@@ -28,7 +28,7 @@ LEDX=$(uci -q get watchdog.@watchdog[0].led)
 LEDON="/sys/class/leds/$LEDX/brightness"
 
 if [[ "$LINES_COUNT" -ge "$LINES_MAX" ]]; then
-   echo "$(tail -$LINES_MIN $LOG_FILE)" > $LOG_FILE
+	echo "$(tail -$LINES_MIN $LOG_FILE)" > $LOG_FILE
 fi
 
 if [ ! -f "$CNT_FILE" ]; then
@@ -93,7 +93,7 @@ if [ $CNT -ge $4 ]; then
 				logger -t LITE-WATCHDOG "Restart modem on port: \"$PORT\"."
 				(sms_tool -d $PORT at "$CMD") &
 
-				date +"%A %T %d-%m-%Y Status: OFFLINE > Action: Sent at command to modem" >> $LOG_FILE && sleep 30
+				date +"%A %T %d-%m-%Y Status: OFFLINE > Action: Sent at command to modem" >> $LOG_FILE && sleep 59
 			fi
 
 			WANT=$(uci -q get watchdog.@watchdog[0].iface)

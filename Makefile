@@ -10,9 +10,9 @@ PKG_NAME:=luci-app-lite-watchdog
 LUCI_TITLE:=LuCI JS Support for lite-watchdog the connection monitor
 MAINTAINER:=Rafał Wabik <4Rafal@gmail.com>
 LUCI_DESCRIPTION:=LuCI JS interface for the lite-watchdog scripts.
-LUCI_DEPENDS:=+sms-tool
+LUCI_DEPENDS:=+sms-tool +kmod-usb-serial +kmod-usb-serial-option +comgt
 LUCI_PKGARCH:=all
-PKG_VERSION:=1.0.10-20230717
+PKG_VERSION:=1.0.11-20231008
 
 define Package/luci-app-lite-watchdog/conffiles
 /etc/modem/log.txt

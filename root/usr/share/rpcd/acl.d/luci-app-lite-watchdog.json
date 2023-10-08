@@ -7,6 +7,9 @@
 				"/usr/bin/lite_watchdog.sh": [ "exec" ],
 				"/sbin/watchdog2cron.sh": [ "exec" ],
 				"/etc/modem/log.txt": [ "read" ],
+				"/tmp/lite_watchdog_cnt": [ "read" ],
+				"/tmp/lite_watchdog": [ "read" ],
+				"/tmp/lite_watchdog_tt": [ "read" ],
 				"/etc/watchdog": [ "read" ]
 			},
 			"uci": [ "watchdog", "luci-app-lite-watchdog" ]
@@ -14,6 +17,9 @@
 		"write": {
 			"file": {
 				"/etc/watchdog": [ "write" ],
+				"/tmp/lite_watchdog_cnt": [ "write" ],
+				"/tmp/lite_watchdog": [ "write" ],
+				"/tmp/lite_watchdog_tt": [ "write" ],
 				"/sys/class/leds/*/brightness": [ "write" ],
 				"/etc/modem/log.txt": [ "write" ]
 			},
