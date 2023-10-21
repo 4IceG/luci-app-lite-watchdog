@@ -6,7 +6,7 @@
 # $4 period count
 # $5 action reboot|wan
 
-T=$(uci -q get network.wan.proto)
+T=$(uci -q get watchdog.@watchdog[0].iface)
 [ -z "$T" ] && exit 0
 [ "x$T" = "xnone" ] && exit 0
 

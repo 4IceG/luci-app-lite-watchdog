@@ -3,8 +3,10 @@
 # MIT License
 
 chmod +x /sbin/watchdog2cron.sh 2>&1 &
+chmod +x /sbin/refresh2cron.sh 2>&1 &
 chmod +x /usr/bin/lite-watchdog-data.sh 2>&1 &
 chmod +x /usr/bin/lite_watchdog.sh 2>&1 &
+chmod +x /etc/lite_watchdog.user 2>&1 &
 
 if [ ! -f /etc/lite_watchdog.user ]; then
         touch /etc/lite_watchdog.user

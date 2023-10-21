@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 'require form';
 'require fs';
 'require view';
@@ -280,6 +280,11 @@ return view.extend({
 				uci.save();
 				uci.apply();
 			fs.exec_direct('/sbin/watchdog2cron.sh');
+
+			if ( ax == "1" ) {
+				fs.exec('sleep 2');
+				fs.exec_direct('/sbin/refresh2cron.sh');
+			}
 				
     			});
 		});
@@ -295,3 +300,4 @@ return view.extend({
 	}
 
 });
+

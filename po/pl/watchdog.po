@@ -86,7 +86,7 @@ msgid "Last check"
 msgstr "Ostatnie sprawdzenie"
 
 msgid "minimum"
-msgstr "minimun"
+msgstr "minimum"
 
 msgid "average"
 msgstr "średnia"
@@ -171,3 +171,27 @@ msgstr "Dioda LED pokazuje stan połączenia z internetem."
 
 msgid "Select the status LED."
 msgstr "Wybierz diodę statusu."
+
+msgid "Edit user script"
+msgstr "Edytuj skrypt użytkownika"
+
+msgid "Before executing the action, system calls a script in which user can place his own commands."
+msgstr "Przed wykonaniem akcji system wywołuje skrypt, w którym użytkownik może umieścić własne polecenia."
+
+msgid "Edit user script"
+msgstr "Edytuj skrypt użytkownika"
+
+msgid "User script"
+msgstr "Skrypt użytkownika"
+
+msgid "User-defined commands."
+msgstr "Polecenia zdefiniowane przez użytkownika."
+
+msgid "Contents have been saved"
+msgstr "Zawartość została zapisana"
+
+msgid "Unable to save the contents"
+msgstr "Nie można zapisać zawartości"
+
+msgid "Unable to read the contents"
+msgstr "Nie można odczytać zawartości"
