@@ -18,6 +18,37 @@ return L.view.extend({
 	tailDefault: 20,
 
 	parseLogData: function(logdata) {
+		/* Log file translation */
+		logdata = logdata.replaceAll('Failed', _('Failed'));
+		logdata = logdata.replaceAll('out of', _('out of'));
+		logdata = logdata.replaceAll('OFFLINE', _('OFFLINE'));
+		logdata = logdata.replaceAll('ONLINE', _('ONLINE'));
+		logdata = logdata.replaceAll('Action', _('Action'));
+		logdata = logdata.replaceAll('Restarting interface', _('Restarting interface'));
+		logdata = logdata.replaceAll('At command was sent to modem', _('At command was sent to modem'));
+		logdata = logdata.replaceAll('Reboot', _('Reboot'));
+
+		logdata = logdata.replaceAll('January', _('January'));
+		logdata = logdata.replaceAll('February', _('February'));
+		logdata = logdata.replaceAll('March', _('March'));
+		logdata = logdata.replaceAll('April', _('April'));
+		logdata = logdata.replaceAll('May', _('May'));
+		logdata = logdata.replaceAll('June', _('June'));
+		logdata = logdata.replaceAll('July', _('July'));
+		logdata = logdata.replaceAll('August', _('August'));
+		logdata = logdata.replaceAll('September', _('September'));
+		logdata = logdata.replaceAll('October', _('October'));
+		logdata = logdata.replaceAll('November', _('November'));
+		logdata = logdata.replaceAll('December', _('December'));
+
+		logdata = logdata.replaceAll('Monday', _('Monday'));
+		logdata = logdata.replaceAll('Tuesday', _('Tuesday'));
+		logdata = logdata.replaceAll('Wednesday', _('Wednesday'));
+		logdata = logdata.replaceAll('Thursday', _('Thursday'));
+		logdata = logdata.replaceAll('Friday', _('Friday'));
+		logdata = logdata.replaceAll('Saturday', _('Saturday'));
+		logdata = logdata.replaceAll('Sunday', _('Sunday'));
+		/* Log file translation */
 		return logdata.trim().split(/\n/).map(line => line.replace(/^<\d+>/, ''));
 	},
 
@@ -30,7 +61,8 @@ return L.view.extend({
 	},
 
 	setLogFilter: function(cArr) {
-		let fPattern = document.getElementById('logFilter').value;
+		let fPattern = document.getElementById('logFilter').value;		
+
 		if(!fPattern) {
 			return cArr;
 		};
@@ -98,6 +130,39 @@ return L.view.extend({
 
 	render: function(logdata) {
 		let navBtnsTop = '1px';
+		
+		/* Log file translation */
+		logdata = logdata.replaceAll('Failed', _('Failed'));
+		logdata = logdata.replaceAll('out of', _('out of'));
+		logdata = logdata.replaceAll('OFFLINE', _('OFFLINE'));
+		logdata = logdata.replaceAll('ONLINE', _('ONLINE'));
+		logdata = logdata.replaceAll('Action', _('Action'));
+		logdata = logdata.replaceAll('Restarting interface', _('Restarting interface'));
+		logdata = logdata.replaceAll('At command was sent to modem', _('At command was sent to modem'));
+		logdata = logdata.replaceAll('Reboot', _('Reboot'));
+
+		logdata = logdata.replaceAll('January', _('January'));
+		logdata = logdata.replaceAll('February', _('February'));
+		logdata = logdata.replaceAll('March', _('March'));
+		logdata = logdata.replaceAll('April', _('April'));
+		logdata = logdata.replaceAll('May', _('May'));
+		logdata = logdata.replaceAll('June', _('June'));
+		logdata = logdata.replaceAll('July', _('July'));
+		logdata = logdata.replaceAll('August', _('August'));
+		logdata = logdata.replaceAll('September', _('September'));
+		logdata = logdata.replaceAll('October', _('October'));
+		logdata = logdata.replaceAll('November', _('November'));
+		logdata = logdata.replaceAll('December', _('December'));
+
+		logdata = logdata.replaceAll('Monday', _('Monday'));
+		logdata = logdata.replaceAll('Tuesday', _('Tuesday'));
+		logdata = logdata.replaceAll('Wednesday', _('Wednesday'));
+		logdata = logdata.replaceAll('Thursday', _('Thursday'));
+		logdata = logdata.replaceAll('Friday', _('Friday'));
+		logdata = logdata.replaceAll('Saturday', _('Saturday'));
+		logdata = logdata.replaceAll('Sunday', _('Sunday'));
+		/* Log file translation */
+		
 		let loglines = this.parseLogData(logdata);
 
 		uci.load('watchdog').then(function() {
@@ -118,7 +183,7 @@ return L.view.extend({
 		 let logTextarea = E('textarea', {
 			'id': 'syslog',
 			'class': 'cbi-input-textarea',
-			'style': 'width:100% !important; resize:horizontal; padding: 0 0 0 45px; font-size:12px; font-family: monospace',
+			'style': 'width: 100%; resize: vertical; height:400px; max-height:800px; min-height:400px; min-width:100%; padding: 0 0 0 45px; font-size:12px; font-family: monospace',
 			'readonly': 'readonly',
 			'wrap': 'off',
 			'rows': this.tailDefault,
@@ -145,7 +210,17 @@ return L.view.extend({
 			'class': 'cbi-input-text',
 			'style': 'min-width:16em !important; margin-right:1em !important; margin-bottom:0.3em !important',
 			'placeholder': _('Entries filter'),
-			'data-tooltip': _('Filter entries using regexp'),
+			'data-tooltip': _('Filter entries using regexp, press [Delete] to delete all text'),
+			'keydown': function(ev) {
+					if (ev.keyCode === 46)  
+					{
+					var del = document.getElementById('logFilter');
+						if (del)
+							var ov = document.getElementById('logFilter');
+							ov.value = '';
+							document.getElementById('logFilter').focus();
+						}
+					},
 		});
 
 		let logFormSubmitBtn = E('input', {
@@ -192,12 +267,10 @@ return L.view.extend({
 									ev.preventDefault();
 									let formElems = Array.from(document.forms.logForm.elements);
 									formElems.forEach(e => e.disabled = true);
-
 									return this.load().then(logdata => {
 										let loglines = this.setLogFilter(this.setLogTail(
 											this.parseLogData(logdata)));
-										logTextarea.rows = (loglines.length < this.tailDefault) ?
-											this.tailDefault : loglines.length;
+										logTextarea.rows = (loglines.length < this.tailDefault) ? this.tailDefault : loglines.length;
 										logTextarea.value = loglines.join('\n');
 									}).finally(() => {
 										formElems.forEach(e => e.disabled = false);

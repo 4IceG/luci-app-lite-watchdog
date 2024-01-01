@@ -103,6 +103,9 @@ msgstr "Ustawienia podstawowe"
 msgid "failed"
 msgstr "nieudanych"
 
+msgid "Failed"
+msgstr "Nieudanych"
+
 msgid "out of"
 msgstr "z"
 
@@ -127,8 +130,8 @@ msgstr "Nie można wczytać danych dziennika:"
 msgid "Entries filter"
 msgstr "Filtr wpisów"
 
-msgid "Filter entries using regexp"
-msgstr "Filtruj wpisy za pomocą wyrażenia regularnego"
+msgid "Filter entries using regexp, press [Delete] to delete all text"
+msgstr "Filtruj wpisy za pomocą wyrażenia regularnego, wciśnij [Delete] aby usunąć tekst"
 
 msgid "Refresh"
 msgstr "Odśwież"
@@ -195,3 +198,72 @@ msgstr "Nie można zapisać zawartości"
 
 msgid "Unable to read the contents"
 msgstr "Nie można odczytać zawartości"
+
+msgid "Action"
+msgstr "Akcja"
+
+msgid "Restarting interface"
+msgstr "Restart połączenia z internetem"
+
+msgid "Reboot"
+msgstr "Ponowne uruchomienie urządzenia"
+
+msgid "At command was sent to modem"
+msgstr "Polecenie at zostało wysłane do modemu"
+
+msgid "January"
+msgstr "Styczeń"
+
+msgid "February"
+msgstr "Luty"
+
+msgid "March"
+msgstr "Marzec"
+
+msgid "April"
+msgstr "Kwiecień"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Czerwiec"
+
+msgid "July"
+msgstr "Lipiec"
+
+msgid "August"
+msgstr "Sierpień"
+
+msgid "September"
+msgstr "Wrzesień"
+
+msgid "October"
+msgstr "Październik"
+
+msgid "November"
+msgstr "Listopad"
+
+msgid "December"
+msgstr "Grudzień"
+
+msgid "Monday"
+msgstr "Poniedziałek"
+
+msgid "Tuesday"
+msgstr "Wtorek"
+
+msgid "Wednesday"
+msgstr "Środa"
+
+msgid "Thursday"
+msgstr "Czwartek"
+
+msgid "Friday"
+msgstr "Piątek"
+
+msgid "Saturday"
+msgstr "Sobota"
+
+msgid "Sunday"
+msgstr "Niedziela"
