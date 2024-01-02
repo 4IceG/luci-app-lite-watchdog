@@ -6,7 +6,7 @@
 
 
 /*
-	Copyright 2023 Rafał Wabik - IceG - From eko.one.pl forum
+	Copyright 2023-2024 Rafał Wabik - IceG - From eko.one.pl forum
 	
 	MIT License
 
@@ -21,6 +21,7 @@ return L.view.extend({
 		/* Log file translation */
 		logdata = logdata.replaceAll('Failed', _('Failed'));
 		logdata = logdata.replaceAll('out of', _('out of'));
+		logdata = logdata.replaceAll('Status', _('Status'));
 		logdata = logdata.replaceAll('OFFLINE', _('OFFLINE'));
 		logdata = logdata.replaceAll('ONLINE', _('ONLINE'));
 		logdata = logdata.replaceAll('Action', _('Action'));
@@ -134,6 +135,7 @@ return L.view.extend({
 		/* Log file translation */
 		logdata = logdata.replaceAll('Failed', _('Failed'));
 		logdata = logdata.replaceAll('out of', _('out of'));
+		logdata = logdata.replaceAll('Status', _('Status'));
 		logdata = logdata.replaceAll('OFFLINE', _('OFFLINE'));
 		logdata = logdata.replaceAll('ONLINE', _('ONLINE'));
 		logdata = logdata.replaceAll('Action', _('Action'));

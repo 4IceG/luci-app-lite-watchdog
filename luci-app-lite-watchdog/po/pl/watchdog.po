@@ -199,6 +199,15 @@ msgstr "Nie można zapisać zawartości"
 msgid "Unable to read the contents"
 msgstr "Nie można odczytać zawartości"
 
+msgid "Status"
+msgstr "Status"
+
+msgid "ONLINE"
+msgstr "ONLINE"
+
+msgid "OFFLINE"
+msgstr "OFFLINE"
+
 msgid "Action"
 msgstr "Akcja"
 
